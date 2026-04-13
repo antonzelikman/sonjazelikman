@@ -1,54 +1,49 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { useState, useRef, useEffect } from 'react';
+import './App.css';
+import PasswordGate from './components/PasswordGate';
+import HeroSection from './components/HeroSection';
+import JourneySection from './components/JourneySection';
+import WorldSection from './components/WorldSection';
+import GiftSection from './components/GiftSection';
+import ClosingSection from './components/ClosingSection';
+import AudioPlayer from './components/AudioPlayer';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+export default function App() {
+  const [authenticated, setAuthenticated] = useState(false);
+  const journeyRef = useRef(null);
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
+  const handleBegin = () => {
+    if (journeyRef.current) {
+      journeyRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
+  const handleReplay = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   useEffect(() => {
-    helloWorldApi();
-  }, []);
+    if (authenticated) {
+      document.body.style.overflow = 'auto';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+  }, [authenticated]);
+
+  if (!authenticated) {
+    return <PasswordGate onUnlock={() => setAuthenticated(true)} />;
+  }
 
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
-
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+    <div className="sonja-app">
+      <HeroSection onBegin={handleBegin} />
+      <div ref={journeyRef}>
+        <JourneySection />
+      </div>
+      <WorldSection />
+      <GiftSection />
+      <ClosingSection onReplay={handleReplay} />
+      <AudioPlayer />
     </div>
   );
 }
-
-export default App;
