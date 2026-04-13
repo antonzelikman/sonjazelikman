@@ -1,0 +1,118 @@
+{
+  "theme": "dark",
+  "archetype": "5",
+  "archetype_name": "Jewel & Luxury",
+  "brand_identity": {
+    "domain": "Personal digital gift (landing page)",
+    "target_audience": "Sonja (16-year-old girl)",
+    "emotional_tone": "Deeply emotional, luxurious, cinematic, editorial, transformational.",
+    "visual_mood": "Deep charcoal/black, warm white, muted gold accents, soft feminine tones, film grain texture."
+  },
+  "colors": {
+    "background": {
+      "primary": "#0A0A0A",
+      "secondary": "#141414",
+      "glass": "rgba(20, 20, 20, 0.7)"
+    },
+    "text": {
+      "primary": "#FDFBF7",
+      "secondary": "#A1A1AA",
+      "muted": "#71717A"
+    },
+    "accents": {
+      "primary": "#D4AF37",
+      "secondary": "#C5A059",
+      "feminine": "#D8A7A7",
+      "glow": "rgba(212, 175, 55, 0.2)"
+    },
+    "borders": {
+      "subtle": "rgba(253, 251, 247, 0.1)",
+      "gold": "rgba(212, 175, 55, 0.4)"
+    }
+  },
+  "typography": {
+    "font_families": {
+      "heading": "Cormorant Garamond, serif",
+      "body": "Outfit, sans-serif",
+      "mono": "Space Mono, monospace"
+    },
+    "scales": {
+      "h1": "text-5xl sm:text-6xl tracking-tighter leading-none font-medium",
+      "h2": "text-4xl sm:text-5xl tracking-tight leading-tight",
+      "h3": "text-2xl sm:text-3xl tracking-normal",
+      "body": "text-base sm:text-lg leading-relaxed text-[#A1A1AA]",
+      "overline": "text-xs uppercase tracking-[0.2em] font-mono text-[#D4AF37]"
+    }
+  },
+  "spacing_and_layout": {
+    "container": "w-full max-w-7xl mx-auto px-6 sm:px-12",
+    "section_padding": "py-24 sm:py-32",
+    "grid_system": "Mobile-first full width, expanding to bento or overlapping grids on desktop. Use generous negative space."
+  },
+  "media": {
+    "image_urls": {
+      "hero_background": {
+        "url": "https://images.pexels.com/photos/9665180/pexels-photo-9665180.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Cinematic dark background with floating golden dust particles for hero section."
+      },
+      "gold_foil": {
+        "url": "https://images.unsplash.com/photo-1760784213106-5ee511ace879?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwzfHxnb2xkJTIwZm9pbCUyMGx1eHVyeXxlbnwwfHx8fDE3NzYxMDc1MDV8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Gold foil texture used for boarding pass accents and premium details."
+      },
+      "photo_placeholders": [
+        {
+          "url": "https://images.unsplash.com/photo-1771153492790-4ac537ae2670?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwyfHxjaW5lbWF0aWMlMjB0cmF2ZWwlMjB2aW50YWdlJTIwZmlsbXxlbnwwfHx8fDE3NzYxMDc0OTR8MA&ixlib=rb-4.1.0&q=85",
+          "description": "Cinematic travel placeholder 1 (use as one of the 9 photos)."
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1622463666002-a0d791811bc6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwzfHxjaW5lbWF0aWMlMjB0cmF2ZWwlMjB2aW50YWdlJTIwZmlsbXxlbnwwfHx8fDE3NzYxMDc0OTR8MA&ixlib=rb-4.1.0&q=85",
+          "description": "Cinematic travel placeholder 2 (use as one of the 9 photos)."
+        }
+      ]
+    },
+    "styling_rules": {
+      "image_filters": "Apply CSS film grain overlay. Filter: contrast(1.1) brightness(0.9) grayscale(15%) sepia(10%).",
+      "image_border_radius": "rounded-none or subtle rounded-sm for an editorial print feel."
+    }
+  },
+  "components": {
+    "password_gate": {
+      "design": "Fullscreen dark. Centered input field with minimal bottom border, no background. Large elegant placeholder text.",
+      "logic": "Must require 'Snusen123' to unlock.",
+      "test_id": "password-gate-input"
+    },
+    "hero_section": {
+      "design": "Fullscreen 100vh. Dark cinematic background overlay. Large editorial serif typography staggering in. '16' in massive font size.",
+      "test_id": "hero-section"
+    },
+    "photo_timeline": {
+      "design": "Vertical scrolling timeline. 9 photos total (use placeholders, alternate layouts left/right). Images must have CSS film grain and cinematic filter. Small narrative captions.",
+      "test_id": "photo-timeline"
+    },
+    "philosophy_section": {
+      "design": "World map or dark abstract background. Glowing accent points. Text emphasizing 'Traveling the world will open your soul'.",
+      "test_id": "philosophy-section"
+    },
+    "boarding_pass_reveal": {
+      "design": "Premium digital boarding pass. 'Zelikman Airlines'. First Class. Destination: Unknown. Use gold foil texture background clipping or gold text on black card. Perforated edges or dashed borders. Monospace font for flight details.",
+      "test_id": "boarding-pass-card"
+    },
+    "audio_player": {
+      "design": "Floating bottom right or left. Minimalist icon (vinyl record spinning or simple waves). Play/pause toggle.",
+      "test_id": "floating-audio-player"
+    }
+  },
+  "motion_and_interactions": {
+    "scrolling": "Implement smooth scrolling (Lenis) for premium momentum feel.",
+    "reveals": "Use Framer Motion for staggered fade-ups and subtle parallax on images.",
+    "hover_states": "Interactive elements should shift text color to gold (#D4AF37) and glow slightly."
+  },
+  "instructions_to_main_agent": [
+    "Use framer-motion extensively for cinematic reveals. Nothing should appear abruptly.",
+    "The timeline must accommodate 9 images. Create a reusable <TimelinePhoto /> component with the CSS film grain filter built-in.",
+    "Implement the CSS film grain using a pseudo-element with a repeating radial gradient or SVG noise filter overlaying the image wrapper.",
+    "The boarding pass should feel like a tangible, high-end ticket. Use borders, uppercase monospace fonts for details, and golden accents.",
+    "Ensure all fonts are loaded from Google Fonts (Cormorant Garamond, Outfit, Space Mono).",
+    "Install lucide-react for minimal icons (audio toggle, arrows)."
+  ]
+}
