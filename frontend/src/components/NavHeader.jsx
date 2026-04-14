@@ -32,8 +32,8 @@ export default function NavHeader({ activeTab, onTabChange }) {
             className={`pill-tab ${activeTab === tab.id ? 'active' : ''}`}
             onClick={() => onTabChange(tab.id)}
           >
+            <span aria-hidden="true" className="tab-label-mobile">{tab.shortLabel}</span>
             <span className="tab-label-desktop">{tab.label}</span>
-            <span className="tab-label-mobile">{tab.shortLabel}</span>
           </button>
         ))}
       </nav>

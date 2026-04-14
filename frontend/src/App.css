@@ -218,6 +218,16 @@ body {
   transition: border-color 0.3s ease;
 }
 .modal-textarea:focus { border-color: rgba(123,97,255,0.6); }
+/* Dark date picker */
+input[type="date"].modal-input {
+  color-scheme: dark;
+  -webkit-appearance: none;
+}
+input[type="date"].modal-input::-webkit-calendar-picker-indicator {
+  filter: invert(0.6) sepia(1) saturate(3) hue-rotate(240deg);
+  cursor: pointer; opacity: 0.7;
+}
+input[type="date"].modal-input::-webkit-calendar-picker-indicator:hover { opacity: 1; }
 
 /* ══════════════════════════════════════════════════════
    YOU TAB
