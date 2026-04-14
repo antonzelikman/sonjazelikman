@@ -4,7 +4,7 @@ export const PASSWORD = 'Snusen123';
 // AUDIO — replace each MP3 in /public/audio/
 // ──────────────────────────────────────────────
 export const TRACKS = {
-  you: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/djlvg2d0_10.Bara_Fa%CC%8A_Va_Mig_Sja%CC%88lv.mp3',
+  you: '/audio/you.mp3',
   gift: '/audio/gift.mp3',
   things: '/audio/things.mp3',
   adventures: '/audio/adventures.mp3'
@@ -29,49 +29,55 @@ export const CITY_CARDS = [
   {
     id: 'paris',
     city: 'Paris',
-    year: '2023',
-    image: 'https://images.unsplash.com/photo-1589662402993-0bfcfa2f6169?w=900&q=80',
+    year: '2023 · Age 13',
+    image: '/avatars/paris.png',
     caption: 'Quiet confidence. You didn\'t need to be loud here.\nYou already had presence.',
+    quote: 'Elegance is not about being noticed. It\'s about being remembered.',
     accent: '#FF2D95'
   },
   {
     id: 'barcelona',
     city: 'Barcelona',
-    year: '2023',
-    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/49dh4q9c_D778ABDE-4D74-4AEF-A5AB-C294B5E100CB_1_105_c.jpeg',
+    year: '2023 · Age 13',
+    image: '/avatars/barcelona.png',
     caption: 'Freedom, color, energy.\nA version of you that lets go a little more.',
+    quote: 'Some cities give you permission to be more alive.',
     accent: '#FF6B35'
   },
   {
     id: 'london',
     city: 'London',
-    year: '2024',
+    year: '2024 · Age 14',
     image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/149a5ckz_72BCCCE6-553C-4D94-ABB4-70B11369F418_1_105_c.jpeg',
     caption: 'Sharp, observant, composed.\nYou see more than you say.',
+    quote: 'The sharpest minds move quietly.',
     accent: '#7B61FF'
   },
   {
     id: 'istanbul',
     city: 'Istanbul',
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1714903229316-7ed7e3764a34?w=900&q=80',
+    year: '2024 · Age 14',
+    image: 'https://images.unsplash.com/photo-1611403907861-e7b22ad9c3fa?crop=entropy&cs=srgb&fm=jpg&q=85',
     caption: 'Depth, contrast, mystery.\nA place that mirrors your complexity.',
+    quote: 'There are places that hold you before you even know their name.',
     accent: '#00E5FF'
   },
   {
     id: 'newyork',
     city: 'New York',
-    year: '2025',
-    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/pmjv7cjw_98B29047-C7A4-4855-BA94-1957EFE70AB7_1_105_c.jpeg',
+    year: '2025 · Age 15',
+    image: '/avatars/newyork.png',
     caption: 'Big energy. Big dreams.\nA version of you that dares to take space.',
+    quote: 'This city belongs to anyone brave enough to claim it.',
     accent: '#2D9CFF'
   },
   {
     id: 'telaviv',
     city: 'Tel Aviv',
     year: '2019 – 2025',
-    image: 'https://images.unsplash.com/photo-1547483042-9a94090e13a4?w=900&q=80',
-    caption: 'Warmth, light, belonging.\nA place where you can just be.',
+    image: 'https://images.unsplash.com/photo-1695910410678-6731d8577dc5?crop=entropy&cs=srgb&fm=jpg&q=85',
+    caption: 'Warmth, light, belonging.\nA place where you can always just be.',
+    quote: 'Home is not always a place. Sometimes it is a feeling.',
     accent: '#FFD700'
   }
 ];

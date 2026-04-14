@@ -32,26 +32,11 @@ export default function NavHeader({ activeTab, onTabChange }) {
             className={`pill-tab ${activeTab === tab.id ? 'active' : ''}`}
             onClick={() => onTabChange(tab.id)}
           >
-            <span className="desktop-label"
-              style={{ display: 'none' }}
-            >
-              {tab.label}
-            </span>
-            <span className="mobile-label">
-              {window.innerWidth < 480 ? tab.shortLabel : tab.label}
-            </span>
+            <span className="tab-label-desktop">{tab.label}</span>
+            <span className="tab-label-mobile">{tab.shortLabel}</span>
           </button>
         ))}
       </nav>
-
-      <style>{`
-        @media (min-width: 540px) {
-          .mobile-label { display: none !important; }
-          .desktop-label { display: inline !important; }
-        }
-        .mobile-label { display: inline; }
-        .desktop-label { display: none; }
-      `}</style>
     </motion.header>
   );
 }
