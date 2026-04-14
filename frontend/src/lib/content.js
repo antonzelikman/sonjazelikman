@@ -1,162 +1,158 @@
-// ============================================
-// CONTENT.JS — Edit all text and images here
-// ============================================
+export const PASSWORD = 'Snusen123';
 
-export const MUSIC_URL = "https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/djlvg2d0_10.Bara_Fa%CC%8A_Va_Mig_Sja%CC%88lv.mp3";
-
-export const PASSWORD = "Snusen123";
-
-export const HERO = {
-  overline: "Happy Birthday",
-  name: "Sonja",
-  age: "16 years old",
-  tagline: "The world is bigger than you think.",
-  tagline2: "And so are you.",
-  cta: "Begin the journey"
+// ──────────────────────────────────────────────
+// AUDIO — replace each MP3 in /public/audio/
+// ──────────────────────────────────────────────
+export const TRACKS = {
+  you: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/djlvg2d0_10.Bara_Fa%CC%8A_Va_Mig_Sja%CC%88lv.mp3',
+  gift: '/audio/gift.mp3',
+  things: '/audio/things.mp3',
+  adventures: '/audio/adventures.mp3'
 };
 
-export const PERSONAL_PHOTOS = [
+// ──────────────────────────────────────────────
+// HERO
+// ──────────────────────────────────────────────
+export const HERO = {
+  overline: 'Happy Birthday',
+  name: 'Sonja',
+  age: '16 years old',
+  tagline: 'The world is bigger than you think.',
+  tagline2: 'And so are you.',
+  cta: 'Begin the journey'
+};
+
+// ──────────────────────────────────────────────
+// CITY CARDS — replace image URLs with Sonja's photos
+// ──────────────────────────────────────────────
+export const CITY_CARDS = [
   {
-    url: "https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/cet7fzrm_A4002D96-DE90-4A1D-91C7-D180B3E66271_1_105_c.jpeg",
-    year: "2009", age: "Year One",
-    caption: "Day one. The very beginning.",
-    sub: "Everything was ahead of you."
+    id: 'paris',
+    city: 'Paris',
+    year: '2023',
+    image: 'https://images.unsplash.com/photo-1589662402993-0bfcfa2f6169?w=900&q=80',
+    caption: 'Quiet confidence. You didn\'t need to be loud here.\nYou already had presence.',
+    accent: '#FF2D95'
   },
   {
-    url: "https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/3m3orgak_251B6E11-C1F8-4B23-8141-3D138A2B27FB_1_105_c.jpeg",
-    year: "2011", age: "Age 2",
-    caption: "You discovered flowers. Fields. Wonder.",
-    sub: "The world was already calling to you."
+    id: 'barcelona',
+    city: 'Barcelona',
+    year: '2023',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/49dh4q9c_D778ABDE-4D74-4AEF-A5AB-C294B5E100CB_1_105_c.jpeg',
+    caption: 'Freedom, color, energy.\nA version of you that lets go a little more.',
+    accent: '#FF6B35'
   },
   {
-    url: "https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/29a2dgm8_FBE2F64F-C4F0-4F40-9FE6-69151323E4BE_1_105_c.jpeg",
-    year: "2016", age: "Age 7",
-    caption: "Your first real airport. Your first real adventure.",
-    sub: "You were already a born traveller."
+    id: 'london',
+    city: 'London',
+    year: '2024',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/149a5ckz_72BCCCE6-553C-4D94-ABB4-70B11369F418_1_105_c.jpeg',
+    caption: 'Sharp, observant, composed.\nYou see more than you say.',
+    accent: '#7B61FF'
   },
   {
-    url: "https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/149a5ckz_72BCCCE6-553C-4D94-ABB4-70B11369F418_1_105_c.jpeg",
-    year: "2019", age: "Age 10",
-    caption: "You explored places that felt almost unreal.",
-    sub: "And made them part of your story."
+    id: 'istanbul',
+    city: 'Istanbul',
+    year: '2024',
+    image: 'https://images.unsplash.com/photo-1714903229316-7ed7e3764a34?w=900&q=80',
+    caption: 'Depth, contrast, mystery.\nA place that mirrors your complexity.',
+    accent: '#00E5FF'
   },
   {
-    url: "https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/49dh4q9c_D778ABDE-4D74-4AEF-A5AB-C294B5E100CB_1_105_c.jpeg",
-    year: "2021", age: "Age 12",
-    caption: "Somewhere warm. Something opened in you.",
-    sub: "The world tasted good."
+    id: 'newyork',
+    city: 'New York',
+    year: '2025',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/pmjv7cjw_98B29047-C7A4-4855-BA94-1957EFE70AB7_1_105_c.jpeg',
+    caption: 'Big energy. Big dreams.\nA version of you that dares to take space.',
+    accent: '#2D9CFF'
   },
   {
-    url: "https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/pmjv7cjw_98B29047-C7A4-4855-BA94-1957EFE70AB7_1_105_c.jpeg",
-    year: "2023", age: "Age 14",
-    caption: "New York. Times Square.",
-    sub: "The world got bigger. And so did you."
-  },
-  {
-    url: "https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/l8y4ougn_BB2886AA-F00F-488F-A720-C43DBEDA3FF7_1_105_c.jpeg",
-    year: "2024", age: "Age 15",
-    caption: "The small, beautiful moments between the big ones.",
-    sub: "These are the ones you remember most.",
-    rotate: "180deg"
-  },
-  {
-    url: "https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/dr4siwmm_CD5F61D1-EE23-408A-A024-2D0690ECAD08_1_105_c.jpeg",
-    year: "2024", age: "Age 15",
-    caption: "Growing. Still becoming.",
-    sub: "Already something beautiful."
-  },
-  {
-    url: "https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/8u0xjvq4_42747C17-6FF7-419D-BA57-57DCE467C6DC_1_102_o.jpeg",
-    year: "2025", age: "Right Now",
-    caption: "On the edge of everything.",
-    sub: "The journey is just beginning."
+    id: 'telaviv',
+    city: 'Tel Aviv',
+    year: '2019 – 2025',
+    image: 'https://images.unsplash.com/photo-1547483042-9a94090e13a4?w=900&q=80',
+    caption: 'Warmth, light, belonging.\nA place where you can just be.',
+    accent: '#FFD700'
   }
 ];
 
-export const CITIES = [
-  {
-    id: "paris",
-    city: "Paris",
-    year: "2023",
-    image: "https://images.unsplash.com/photo-1724021946602-a39a0983a188?w=1200&q=80",
-    text: "The city of light taught you that beauty exists in every corner.",
-    accent: "#FF2D95"
-  },
-  {
-    id: "barcelona",
-    city: "Barcelona",
-    year: "2023",
-    image: "https://images.unsplash.com/photo-1585871171640-95e4e74a392f?w=1200&q=80",
-    text: "Where the sea met the city, and something opened in you.",
-    accent: "#2D9CFF"
-  },
-  {
-    id: "london",
-    city: "London",
-    year: "2024",
-    image: "https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/149a5ckz_72BCCCE6-553C-4D94-ABB4-70B11369F418_1_105_c.jpeg",
-    text: "A city that never stops. Neither do you.",
-    accent: "#7B61FF"
-  },
-  {
-    id: "istanbul",
-    city: "Istanbul",
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1635836719925-75db48ec5e0d?w=1200&q=80",
-    text: "Two worlds in one city. Two worlds inside you.",
-    accent: "#00E5FF"
-  },
-  {
-    id: "newyork",
-    city: "New York",
-    year: "2025",
-    image: "https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/pmjv7cjw_98B29047-C7A4-4855-BA94-1957EFE70AB7_1_105_c.jpeg",
-    text: "Times Square. The world said: anything is possible.",
-    accent: "#FF2D95"
-  },
-  {
-    id: "telaviv",
-    city: "Tel Aviv",
-    year: "2019 – 2025",
-    image: "https://images.unsplash.com/photo-1695910410678-6731d8577dc5?w=1200&q=80",
-    text: "Where home and the whole world felt like the same thing.",
-    accent: "#00E5FF"
-  }
+export const QUOTES = [
+  'You are allowed to become.',
+  'The world is not asking you to be perfect.\nOnly open.',
+  'Some adventures begin the moment\nyou believe you are allowed to go.',
+  'Your life is bigger than this moment.'
 ];
 
-export const PHILOSOPHY = [
-  "When you open your world,\nyour soul opens too.",
-  "Movement lets life in.",
-  "The world changes\nhow you see everything."
-];
-
+// ──────────────────────────────────────────────
+// GIFT
+// ──────────────────────────────────────────────
 export const GIFT = {
-  title: "Your Gift",
-  subtitle: "Moments, not things.",
-  amount: "5,000 SEK",
-  description: "A real, dedicated travel & experience account — loaded and ready. This is yours.",
-  cta: "Unlock Your Gift",
-  letter: `Happy Birthday Sonja – 16 years old\n\nThis is your ticket.\n\nNot to a place – but to everything that's waiting for you.\n\nFor experiences.\nFor memories.\nFor moments that stay with you.\n\nNot for things that fade.\n\nNo pressure. No deadlines.\nJust possibilities.\n\nUse it when you're ready.\n\nPappa & Mamma ❤️`
+  amount: '5,000 SEK',
+  description: 'A real, dedicated travel & experience account — loaded and ready.\nThis is yours to use.'
 };
 
 export const BOARDING_PASS = {
-  airline: "ZELIKMAN AIRLINES",
-  passenger: "SONJA",
-  from: "CHILDHOOD",
-  to: "EVERYTHING",
-  flight: "ZL-16",
-  class: "FIRST CLASS",
-  gate: "OPEN",
-  seat: "WINDOW",
-  amount: "5,000 SEK",
-  destination: "Unknown — and that's the point."
+  airline: 'ZELIKMAN AIRLINES',
+  passenger: 'SONJA',
+  from: 'CHILDHOOD',
+  to: 'EVERYTHING',
+  flight: 'ZL-16',
+  class: 'FIRST CLASS',
+  gate: 'OPEN',
+  seat: 'WINDOW',
+  amount: '5,000 SEK',
+  destination: 'Unknown — and that\'s the point.'
 };
 
-export const CLOSING = {
-  overline: "Until then",
-  title: "There is a whole world",
-  titleGold: "beyond what you see right now.",
-  sub: "And it is waiting for you.",
-  body: "Go when you're ready.\nWe'll be here cheering you on.",
-  love: "Happy 16th, Sonja. ❤️"
+export const GIFT_LETTER = `Happy Birthday Sonja – 16 years old
+
+This is your ticket.
+
+Not to a place – but to everything that's waiting for you.
+
+For experiences.
+For memories.
+For moments that stay with you.
+
+Not for things that fade.
+
+No pressure. No deadlines.
+Just possibilities.
+
+Use it when you're ready.
+
+Pappa & Mamma ❤️`;
+
+// ──────────────────────────────────────────────
+// PACKING SMART RESPONSES
+// ──────────────────────────────────────────────
+export const getSmartResponse = (item) => {
+  const l = item.toLowerCase();
+  if (l.includes('passport')) return '🛂 Non-negotiable. First thing. Always.';
+  if (l.includes('charger') || l.includes('cable')) return '⚡ Future you is already grateful for this.';
+  if (l.includes('outfit') || l.includes('dress') || l.includes('clothes')) return '✨ Main character energy activated.';
+  if (l.includes('camera') || l.includes('photo')) return '📸 Memories, not just vibes. Smart.';
+  if (l.includes('book') || l.includes('journal')) return '📖 A traveller who reflects. The best kind.';
+  if (l.includes('shoes') || l.includes('sneakers') || l.includes('boots')) return '👟 Comfortable feet = unlimited adventures.';
+  if (l.includes('sunscreen') || l.includes('sun')) return '☀️ Your future skin thanks you.';
+  if (l.includes('music') || l.includes('headphone') || l.includes('airpod')) return '🎵 The soundtrack to every memory you\'ll make.';
+  if (l.includes('wallet') || l.includes('money') || l.includes('card')) return '💳 The holy trinity: passport, phone, wallet.';
+  if (l.includes('phone')) return '📱 Never leave home without it.';
+  if (l.includes('hoodie') || l.includes('jacket')) return '🧥 Future you on a cool evening says: yes.';
+  const d = [
+    'Future you says: excellent call.',
+    'Adding to your adventure kit.',
+    'This one has main character energy.',
+    'Pack two. Trust.',
+    'Smart. You always think ahead.',
+    'Your adventure just got better.',
+    'That\'s the spirit of a born traveller.',
+    'This one stays with you forever.'
+  ];
+  return d[Math.floor(Math.random() * d.length)];
 };
+
+export const QUICK_SUGGESTIONS = [
+  'Passport', 'Charger', 'Main character outfit', 'Camera',
+  'Journal', 'Headphones', 'Sunscreen', 'Travel wallet', 'Hoodie', 'Sneakers'
+];
