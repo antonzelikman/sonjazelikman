@@ -53,12 +53,25 @@ src/
 
 | City | Year | Image Source |
 |------|------|-------------|
-| Paris | 2023 · Age 13 | /avatars/paris_v2.png (AI neon portrait, 2nd gen with detailed reference) |
-| Barcelona | 2022 · Age 12 | Real Sonja photo — Spanish coast with dad (customer assets) |
-| London | 2023 · Age 13 | Real Sonja photo — London Eye + Big Ben (customer assets) |
-| Istanbul | 2024 · Age 14 | /avatars/istanbul_v2.png (AI neon portrait with mosque background) |
+| Paris | 2023 · Age 13 | /avatars/paris_v2.png (AI neon portrait) |
+| Barcelona | 2022 · Age 12 | Real Sonja photo — Spanish coast with dad |
+| London | 2023 · Age 13 | Real Sonja photo — London Eye + Big Ben |
+| Istanbul | 2024 · Age 14 | /avatars/istanbul_v2.png (AI neon portrait) |
 | New York | 2025 · Age 15 | /avatars/newyork.png (AI neon portrait) |
-| Tel Aviv | 2019–2025 | Real Sonja photo — beach sand (customer assets) |
+| Tel Aviv | 2019–2025 | Real Sonja photo — beach sand |
+| **Budapest** | **2025 · Age 15** | **Real photo — Mazel Tov restaurant** |
+
+## Origin Story Section (YouTab — before city cards)
+| Panel | Photo | Caption |
+|-------|-------|---------|
+| Begin | Young Sonja (~4) hiking on dad's shoulders | "Before the passport stamps. Before the cities." |
+| Roots | Family waterfront dinner (~age 14) | "The table was always set. The sea was always close." |
+
+## Audio Files (all active)
+- `you.mp3` ← "Bara Få Va Mig Själv" ✅
+- `gift.mp3` ← "I Gotta Feeling" (Black Eyed Peas) ✅
+- `things.mp3` ← "Hard Knock Life" ✅
+- `adventures.mp3` ← "Vart jag mig i världen vänder" ✅
 
 ## Hero Airplane
 - Source: /airplane.png (user's reference neon Boeing PNG, downloaded from assets)
