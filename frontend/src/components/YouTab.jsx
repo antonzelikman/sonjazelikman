@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import NeonAirplane from './NeonAirplane';
-import { CITY_CARDS, QUOTES, HERO } from '../lib/content';
+import { CITY_CARDS, QUOTES, HERO, ORIGIN_STORY } from '../lib/content';
 
 const CITY_NODES = [
   { name: 'NYC', x: 12, y: 58, color: '#2D9CFF' },
@@ -127,6 +127,60 @@ function QuoteMoment({ quote }) {
       <div className="quote-line-left" />
       <p className="quote-text">{quote}</p>
       <div className="quote-line-right" />
+    </motion.div>
+  );
+}
+
+function OriginPanel({ panel, index }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const y = useTransform(scrollYProgress, [0, 1], ['5%', '-5%']);
+  const isRight = panel.align === 'right';
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`origin-panel ${isRight ? 'origin-panel-right' : 'origin-panel-left'}`}
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 1.1, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+      data-testid={`origin-panel-${panel.id}`}
+    >
+      {/* Photo */}
+      <div className="origin-photo-wrap">
+        <motion.img
+          src={panel.image}
+          alt=""
+          loading="lazy"
+          className="origin-photo"
+          style={{ y }}
+        />
+        <div className="origin-photo-overlay" />
+        <div className="origin-photo-glow" />
+      </div>
+
+      {/* Text */}
+      <div className="origin-text">
+        <motion.span
+          className="origin-year"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
+          {panel.year}
+        </motion.span>
+        <motion.p
+          className="origin-caption"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, delay: 0.45 }}
+        >
+          {panel.caption.split('\n').map((l, i) => <span key={i}>{l}<br /></span>)}
+        </motion.p>
+      </div>
     </motion.div>
   );
 }
@@ -258,6 +312,50 @@ export default function YouTab() {
             animate={{ scaleY: [0.2, 1, 0.2], opacity: [0.2, 0.9, 0.2] }}
             transition={{ duration: 2.2, repeat: Infinity }}
           />
+        </motion.div>
+      </section>
+
+      {/* ══════════════ ORIGIN STORY ══════════════ */}
+      <section className="origin-section" data-testid="origin-story">
+        <motion.div
+          className="origin-header"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+        >
+          <p className="overline neon-pink" style={{ display: 'block', textAlign: 'center', marginBottom: '12px' }}>
+            Origin
+          </p>
+          <h2 className="origin-title">
+            Where it<br /><em>all began.</em>
+          </h2>
+        </motion.div>
+
+        <div className="origin-panels">
+          {ORIGIN_STORY.map((panel, i) => (
+            <OriginPanel key={panel.id} panel={panel} index={i} />
+          ))}
+        </div>
+
+        {/* Bridge to cities */}
+        <motion.div
+          className="origin-bridge"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2 }}
+        >
+          <div className="divider-h" style={{ maxWidth: '120px', margin: '0 auto 32px' }} />
+          <p style={{
+            fontFamily: 'Playfair Display, serif', fontStyle: 'italic',
+            fontSize: 'clamp(1rem, 3vw, 1.4rem)',
+            color: 'rgba(255,255,255,0.3)', textAlign: 'center',
+            lineHeight: 1.8
+          }}>
+            And then — you started going places.
+          </p>
+          <div className="divider-h" style={{ maxWidth: '120px', margin: '32px auto 0' }} />
         </motion.div>
       </section>
 

@@ -75,10 +75,19 @@ export const CITY_CARDS = [
     id: 'telaviv',
     city: 'Tel Aviv',
     year: '2019 – 2025',
-    image: 'https://images.unsplash.com/photo-1695910410678-6731d8577dc5?crop=entropy&cs=srgb&fm=jpg&q=85',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/bx7eb1ry_IMG_6245.jpg',
     caption: 'Warmth, light, belonging.\nA place where you can always just be.',
     quote: 'Home is not always a place. Sometimes it is a feeling.',
     accent: '#FFD700'
+  },
+  {
+    id: 'budapest',
+    city: 'Budapest',
+    year: '2025 · Age 15',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/29jb2apj_IMG_9626.jpg',
+    caption: 'History, warmth, your roots.\nA place that knows something you\'re still learning.',
+    quote: 'Some places call to you before you know why.',
+    accent: '#E8A838'
   }
 ];
 
@@ -87,6 +96,26 @@ export const QUOTES = [
   'The world is not asking you to be perfect.\nOnly open.',
   'Some adventures begin the moment\nyou believe you are allowed to go.',
   'Your life is bigger than this moment.'
+];
+
+// ──────────────────────────────────────────────
+// ORIGIN STORY — panels before the city cards
+// ──────────────────────────────────────────────
+export const ORIGIN_STORY = [
+  {
+    id: 'begin',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/41ntxmqo_IMG_4246.jpeg',
+    year: 'Age 4 · The Beginning',
+    caption: 'Before the passport stamps.\nBefore the cities.\nThere was just this.',
+    align: 'left'
+  },
+  {
+    id: 'roots',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/6jkqwh3f_e90f9b08-0156-4386-a443-a6d1903e05bd.jpeg',
+    year: 'Age 14 · Always Together',
+    caption: 'The table was always set.\nThe sea was always close.\nThe people were always yours.',
+    align: 'right'
+  }
 ];
 
 // ──────────────────────────────────────────────
