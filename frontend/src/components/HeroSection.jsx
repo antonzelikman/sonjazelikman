@@ -76,9 +76,9 @@ function WorldMap() {
             transition={{ duration: 3, repeat: Infinity, delay: i * 0.4 + 2 }}
           />
           {/* Core dot */}
-          <motion.circle cx={city.x} cy={city.y} r={4} fill={city.color}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+          <motion.circle cx={city.x} cy={city.y} fill={city.color}
+            initial={{ r: 0, opacity: 0 }}
+            animate={{ r: 4, opacity: 1 }}
             transition={{ duration: 0.5, delay: i * 0.3 + 2.5 }}
           />
           {/* Label */}
