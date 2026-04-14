@@ -1,158 +1,113 @@
 import { useState } from 'react';
-
-const CORRECT_PASSWORD = 'Snusen123';
+import { motion } from 'framer-motion';
+import { PASSWORD } from '../lib/content';
 
 export default function PasswordGate({ onUnlock }) {
   const [value, setValue] = useState('');
   const [error, setError] = useState(false);
-  const [shake, setShake] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (value === CORRECT_PASSWORD) {
+    if (value === PASSWORD) {
       onUnlock();
     } else {
       setError(true);
-      setShake(true);
-      setTimeout(() => setShake(false), 600);
-      setTimeout(() => setError(false), 2000);
-      setValue('');
+      setTimeout(() => { setError(false); setValue(''); }, 1800);
     }
   };
 
   return (
-    <div
+    <motion.div
       data-testid="password-gate"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
       style={{
-        minHeight: '100vh',
-        background: '#0a0a0a',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontFamily: 'Outfit, sans-serif',
-        position: 'relative',
-        overflow: 'hidden'
+        minHeight: '100vh', background: '#0B0B0F',
+        display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center',
+        position: 'relative', overflow: 'hidden'
       }}
     >
-      {/* Subtle background glow */}
+      {/* Pink radial glow */}
       <div style={{
-        position: 'absolute', inset: 0,
-        background: 'radial-gradient(ellipse at 50% 60%, rgba(212,175,55,0.04) 0%, transparent 70%)',
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 60% 50% at 50% 60%, rgba(255,45,149,0.06) 0%, transparent 70%)'
+      }} />
+      {/* Blue glow top */}
+      <div style={{
+        position: 'absolute', top: 0, left: '30%', width: '40%', height: '40%',
+        background: 'radial-gradient(ellipse at center, rgba(45,156,255,0.05) 0%, transparent 70%)',
         pointerEvents: 'none'
       }} />
 
-      <div style={{ textAlign: 'center', zIndex: 1, padding: '0 24px', maxWidth: '400px', width: '100%' }}>
-        {/* Logo / overline */}
-        <p style={{
-          fontFamily: 'Space Mono, monospace',
-          fontSize: '10px',
-          letterSpacing: '0.3em',
-          color: '#D4AF37',
-          textTransform: 'uppercase',
-          marginBottom: '48px',
-          opacity: 0.8
-        }}>
+      <div style={{ zIndex: 1, textAlign: 'center', padding: '0 24px', maxWidth: '420px', width: '100%' }}>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
+          className="overline" style={{ color: 'var(--pink)', marginBottom: '48px', display: 'block' }}
+        >
           A Private Gift
-        </p>
+        </motion.p>
 
-        <h1 style={{
-          fontFamily: 'Cormorant Garamond, serif',
-          fontSize: 'clamp(2rem, 8vw, 3.5rem)',
-          color: '#FDFBF7',
-          fontWeight: 400,
-          lineHeight: 1.1,
-          marginBottom: '16px',
-          letterSpacing: '-0.02em'
-        }}>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1 }}
+          style={{
+            fontFamily: 'Playfair Display, serif',
+            fontSize: 'clamp(3rem, 12vw, 5rem)',
+            fontWeight: 400, color: '#FFFFFF',
+            lineHeight: 0.95, letterSpacing: '-0.02em', marginBottom: '16px'
+          }}
+        >
           For Sonja
-        </h1>
+        </motion.h1>
 
-        <p style={{
-          fontFamily: 'Outfit, sans-serif',
-          fontSize: '14px',
-          color: '#71717A',
-          marginBottom: '56px',
-          letterSpacing: '0.05em'
-        }}>
+        <motion.p
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}
+          style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', color: 'var(--muted)', marginBottom: '56px', letterSpacing: '0.04em' }}
+        >
           Enter your code to begin
-        </p>
+        </motion.p>
 
-        <form onSubmit={handleSubmit}>
-          <div style={{
-            animation: shake ? 'shake 0.6s ease' : 'none'
-          }}>
-            <input
-              data-testid="password-gate-input"
-              type="password"
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              placeholder="Your password..."
-              autoFocus
-              style={{
-                width: '100%',
-                background: 'transparent',
-                border: 'none',
-                borderBottom: `1px solid ${error ? '#ff6b6b' : 'rgba(212,175,55,0.4)'}`,
-                color: '#FDFBF7',
-                fontSize: '18px',
-                padding: '12px 4px',
-                textAlign: 'center',
-                fontFamily: 'Cormorant Garamond, serif',
-                letterSpacing: '0.15em',
-                outline: 'none',
-                transition: 'border-color 0.3s ease',
-                boxSizing: 'border-box'
-              }}
-            />
-          </div>
-
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.3, duration: 0.8 }}>
+        <motion.form
+          onSubmit={handleSubmit}
+          animate={error ? { x: [-10, 10, -10, 10, 0] } : { x: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <input
+            data-testid="password-gate-input"
+            type="password"
+            value={value}
+            onChange={e => setValue(e.target.value)}
+            placeholder="Your password..."
+            autoFocus
+            style={{
+              width: '100%', background: 'transparent', border: 'none',
+              borderBottom: `1px solid ${error ? '#FF4444' : 'rgba(255,45,149,0.4)'}`,
+              color: '#FFFFFF', fontSize: '18px', padding: '14px 4px',
+              textAlign: 'center', fontFamily: 'Playfair Display, serif',
+              letterSpacing: '0.15em', outline: 'none', transition: 'border-color 0.3s ease',
+              boxSizing: 'border-box'
+            }}
+          />
           {error && (
-            <p style={{
-              color: '#ff6b6b', fontSize: '12px', marginTop: '12px',
-              fontFamily: 'Outfit, sans-serif', letterSpacing: '0.05em'
-            }}>
-              That's not quite right
-            </p>
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+              style={{ color: '#FF4444', fontSize: '11px', marginTop: '10px', fontFamily: 'Space Mono, monospace', letterSpacing: '0.1em' }}
+            >
+              Try again
+            </motion.p>
           )}
-
           <button
             data-testid="password-submit-btn"
             type="submit"
-            style={{
-              marginTop: '40px',
-              background: 'transparent',
-              border: '1px solid rgba(212,175,55,0.5)',
-              color: '#D4AF37',
-              padding: '14px 48px',
-              fontFamily: 'Space Mono, monospace',
-              fontSize: '11px',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={e => {
-              e.target.style.background = 'rgba(212,175,55,0.1)';
-              e.target.style.borderColor = '#D4AF37';
-            }}
-            onMouseLeave={e => {
-              e.target.style.background = 'transparent';
-              e.target.style.borderColor = 'rgba(212,175,55,0.5)';
-            }}
+            className="btn-neon"
+            style={{ marginTop: '40px', display: 'block', width: '100%' }}
           >
             Enter
           </button>
-        </form>
+        </motion.form>
+        </motion.div>
       </div>
-
-      <style>{`
-        @keyframes shake {
-          0%, 100% { transform: translateX(0); }
-          20%, 60% { transform: translateX(-8px); }
-          40%, 80% { transform: translateX(8px); }
-        }
-      `}</style>
-    </div>
+    </motion.div>
   );
 }
