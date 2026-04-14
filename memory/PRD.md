@@ -53,12 +53,33 @@ src/
 
 | City | Year | Image Source |
 |------|------|-------------|
-| Paris | 2023 · Age 13 | /avatars/paris.png (AI generated neon portrait) |
-| Barcelona | 2023 · Age 13 | /avatars/barcelona.png (AI generated neon portrait) |
-| London | 2024 · Age 14 | Customer asset — real Sonja photo |
-| Istanbul | 2024 · Age 14 | Unsplash cinematic |
-| New York | 2025 · Age 15 | /avatars/newyork.png (AI generated neon portrait) |
-| Tel Aviv | 2019–2025 | Unsplash cinematic |
+| Paris | 2023 · Age 13 | /avatars/paris_v2.png (AI neon portrait, 2nd gen with detailed reference) |
+| Barcelona | 2022 · Age 12 | Real Sonja photo — Spanish coast with dad (customer assets) |
+| London | 2023 · Age 13 | Real Sonja photo — London Eye + Big Ben (customer assets) |
+| Istanbul | 2024 · Age 14 | /avatars/istanbul_v2.png (AI neon portrait with mosque background) |
+| New York | 2025 · Age 15 | /avatars/newyork.png (AI neon portrait) |
+| Tel Aviv | 2019–2025 | Real Sonja photo — beach sand (customer assets) |
+
+## Hero Airplane
+- Source: /airplane.png (user's reference neon Boeing PNG, downloaded from assets)
+- Animation: 22s CSS orbit loop across full hero, 8 keyframe positions, banking ±24°
+- Size: clamp(340px, 52vw, 720px) — dominant visual
+- Glow: 4-layer drop-shadow (pink/violet/cyan), animated 3s pulse
+
+## Uploaded Photos Received
+### Batch 1 (from user):
+- IMG_9626.jpg — Mazel Tov restaurant (Budapest)
+- IMG_9641.jpg — Dohány Street Synagogue, Budapest (Sonja + brother)
+- IMG_9604.jpg — Hungarian Parliament, Budapest (Sonja + dad)
+- e90f9b08.jpeg — Waterfront restaurant, Mediterranean (possibly Malta)
+- IMG_4246.jpeg — Young Sonja (~age 4-5) hiking on dad's shoulders
+
+### Batch 2 (from user):
+- IMG_2081.jpg — London Eye + Big Ben ✅ Used for London card
+- IMG_9579.jpg — Madame Tussauds London (alternate London photo, not used)
+- IMG_6245.jpg — Tel Aviv beach sand ✅ Used for Tel Aviv card
+- IMG_8327.jpg — Spanish coast with dad ✅ Used for Barcelona card
+- image.png — Reference airplane ✅ Used as /airplane.png hero
 
 ---
 

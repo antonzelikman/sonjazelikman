@@ -1,68 +1,63 @@
 import asyncio
 import os
+import base64
 from emergentintegrations.llm.openai.image_generation import OpenAIImageGeneration
 
 API_KEY = "sk-emergent-e4346330c9dD541C2B"
 OUT_DIR = "/app/frontend/public/avatars"
 
-SONJA_BASE = (
-    "A recognizable teenage girl named Sonja: light-medium brown wavy shoulder-length hair, "
-    "fair skin with warm undertone, round soft face with full cheeks, full lips, "
-    "natural arched eyebrows, soft but confident expression. "
-    "60% realistic 40% stylized editorial portrait. "
-    "Dark luxury neon atmosphere, deep dark background (#080810). "
-    "Soft pink, cyan, and violet neon light reflections on her face. "
-    "Sparkle light particles floating in the air. "
-    "Cinematic editorial fashion photography lighting. "
-    "Premium editorial quality. "
-    "NOT cartoon. NOT generic AI face. She must look like a real teenage girl."
+# Now we have detailed Sonja reference:
+# - Light-medium brown wavy hair (shoulder length, lighter when young)
+# - Fair skin with warm undertone
+# - Round soft face, full cheeks
+# - Full lips, gap between front teeth when smiling big
+# - Natural arched eyebrows, warm expressive eyes
+# - Slim build, age-appropriate
+# From Barcelona beach photo: she looks free, joyful, outdoorsy
+# From London Eye photo: she looks polished, confident, around 13-14
+
+SONJA = (
+    "Editorial portrait of a real teenage girl named Sonja: "
+    "she has light-medium brown wavy shoulder-length hair, "
+    "fair skin with warm undertone, round soft face with full cheeks, "
+    "full lips with natural gap between front teeth visible in gentle smile, "
+    "natural arched eyebrows, warm expressive eyes. "
+    "60% realistic true photographic likeness — 40% neon stylized editorial. "
+    "She MUST remain recognizable as herself. NOT a generic AI face. "
+    "Premium fashion editorial style, soft confident expression. "
+    "Dark neon luxury atmosphere, background deep #080810. "
+    "Pink, cyan and violet neon light reflections softly on her skin. "
+    "Subtle sparkle light particles floating around her. "
+    "Multiple soft glow rim lights creating halo effect. "
+    "Cinematic key light on face for clarity and depth. "
+    "NOT cartoon, NOT fantasy, NOT anime, NOT over-makeup. "
+    "Portrait orientation, face and upper body composition."
 )
 
 CITIES = [
     {
-        "slug": "paris",
-        "prompt": f"{SONJA_BASE} "
-            "Age 13, chic dark outfit. Standing near the Eiffel Tower at night, "
-            "tower glowing softly in golden rose light behind her, "
-            "Parisian night street atmosphere. "
-            "Elegant, quiet, luminous. Pink neon reflections dominate.",
+        "slug": "paris_v2",
+        "prompt": (
+            f"{SONJA} "
+            "Setting: Age 13, Paris at night. "
+            "The Eiffel Tower is softly glowing in blurred golden rose light far behind her, "
+            "Parisian cobblestone street atmosphere. "
+            "She is wearing a chic dark outfit. "
+            "Elegant, slightly mysterious Parisian night mood. "
+            "Pink neon warm glow dominates her face from left."
+        ),
     },
     {
-        "slug": "barcelona",
-        "prompt": f"{SONJA_BASE} "
-            "Age 13, colorful playful energy. Sagrada Familia architecture visible in warm blurred background. "
-            "Barcelona warmth — orange and pink golden light, free and joyful expression. "
-            "Warm orange and pink neon glows.",
-    },
-    {
-        "slug": "london",
-        "prompt": f"{SONJA_BASE} "
-            "Age 14, composed and sharp expression. London rainy night, "
-            "wet cobblestone street reflections, Big Ben silhouette faintly visible in background. "
-            "Cool blue and violet neon tones dominate. "
-            "Rain droplets visible in air. Dark cinematic.",
-    },
-    {
-        "slug": "istanbul",
-        "prompt": f"{SONJA_BASE} "
-            "Age 14, mysterious depth in expression. Istanbul at golden hour into dusk, "
-            "mosque silhouettes and minarets in the dark blurred background, Bosphorus water glow. "
-            "Cyan and gold neon reflections. Rich deep colors.",
-    },
-    {
-        "slug": "newyork",
-        "prompt": f"{SONJA_BASE} "
-            "Age 15, big city confidence expression. New York City skyline and Times Square neon signs "
-            "blurred in background behind her. "
-            "Blue, pink, and white neon reflections all over. "
-            "Electric metropolitan energy.",
-    },
-    {
-        "slug": "telaviv",
-        "prompt": f"{SONJA_BASE} "
-            "Age across childhood to 16, warm and familiar expression, belonging and warmth. "
-            "Tel Aviv beach city — warm golden Mediterranean light, city lights and shoreline in background. "
-            "Gold and cyan neon glow, warmth and light.",
+        "slug": "istanbul_v2",
+        "prompt": (
+            f"{SONJA} "
+            "Setting: Age 14, Istanbul at golden dusk. "
+            "Mosque silhouettes and minarets blurred in distance behind her, "
+            "warm Bosphorus water glow on horizon. "
+            "Deep rich warm color palette transitioning to night — gold, deep teal, rust. "
+            "Cyan and gold neon reflections on her face from street lights. "
+            "Mysterious, introspective, beautiful."
+        ),
     },
 ]
 
@@ -78,7 +73,7 @@ async def generate_one(gen, city):
             path = os.path.join(OUT_DIR, f"{city['slug']}.png")
             with open(path, "wb") as f:
                 f.write(images[0])
-            print(f"  Saved: {path}")
+            print(f"  Saved: {path} ({len(images[0])//1024}KB)")
             return city['slug'], True
         else:
             print(f"  No image returned for {city['slug']}")
@@ -90,16 +85,13 @@ async def generate_one(gen, city):
 async def main():
     gen = OpenAIImageGeneration(api_key=API_KEY)
     results = []
-    # Generate sequentially to avoid rate limits
     for city in CITIES:
         slug, ok = await generate_one(gen, city)
         results.append((slug, ok))
-        await asyncio.sleep(2)
-    
+        await asyncio.sleep(3)
     print("\n=== RESULTS ===")
     for slug, ok in results:
-        status = "OK" if ok else "FAILED"
-        print(f"  {slug}: {status}")
+        print(f"  {slug}: {'OK' if ok else 'FAILED'}")
 
 if __name__ == "__main__":
     asyncio.run(main())
