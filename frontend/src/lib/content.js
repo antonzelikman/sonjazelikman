@@ -30,7 +30,7 @@ export const CITY_CARDS = [
     id: 'paris',
     city: 'Paris',
     year: '2023 · Age 13',
-    image: '/avatars/paris_v2.png',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/oexez4d5_PARTY.png',
     caption: 'Quiet confidence. You didn\'t need to be loud here.\nYou already had presence.',
     quote: 'Elegance is not about being noticed. It\'s about being remembered.',
     accent: '#FF2D95'
@@ -39,7 +39,7 @@ export const CITY_CARDS = [
     id: 'barcelona',
     city: 'Barcelona',
     year: '2022 · Age 12',
-    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/qjzvqrj7_IMG_8327.jpg',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/ufasv5qv_PARTY%20%22.png',
     caption: 'Freedom, color, energy.\nA version of you that lets go a little more.',
     quote: 'Some cities give you permission to be more alive.',
     accent: '#FF6B35'
@@ -57,7 +57,7 @@ export const CITY_CARDS = [
     id: 'istanbul',
     city: 'Istanbul',
     year: '2024 · Age 14',
-    image: '/avatars/istanbul_v2.png',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/u65lg03p_DREAM.png',
     caption: 'Depth, contrast, mystery.\nA place that mirrors your complexity.',
     quote: 'There are places that hold you before you even know their name.',
     accent: '#00E5FF'
@@ -66,7 +66,7 @@ export const CITY_CARDS = [
     id: 'newyork',
     city: 'New York',
     year: '2025 · Age 15',
-    image: '/avatars/newyork.png',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/i680y6eu_DRINK.png',
     caption: 'Big energy. Big dreams.\nA version of you that dares to take space.',
     quote: 'This city belongs to anyone brave enough to claim it.',
     accent: '#2D9CFF'
@@ -75,7 +75,7 @@ export const CITY_CARDS = [
     id: 'telaviv',
     city: 'Tel Aviv',
     year: '2019 – 2025',
-    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/bx7eb1ry_IMG_6245.jpg',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/jrokzk8d_MOUNTAIN.png',
     caption: 'Warmth, light, belonging.\nA place where you can always just be.',
     quote: 'Home is not always a place. Sometimes it is a feeling.',
     accent: '#FFD700'
