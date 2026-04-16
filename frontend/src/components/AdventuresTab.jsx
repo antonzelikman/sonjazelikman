@@ -38,7 +38,7 @@ function AdventureCard({ adv, index, onDelete }) {
             {/* Status badge */}
             <span style={{
               fontFamily: 'Space Mono, monospace',
-              fontSize: '9px', letterSpacing: '0.18em',
+              fontSize: '11px', letterSpacing: '0.18em',
               color: isUpcoming ? accent : 'rgba(255,255,255,0.3)',
               textTransform: 'uppercase',
               border: `1px solid ${isUpcoming ? `${accent}50` : 'rgba(255,255,255,0.12)'}`,
@@ -62,7 +62,7 @@ function AdventureCard({ adv, index, onDelete }) {
             {/* Date */}
             <p style={{
               fontFamily: 'Space Mono, monospace',
-              fontSize: '11px', letterSpacing: '0.1em',
+              fontSize: '13px', letterSpacing: '0.1em',
               color: `${accent}bb`, marginBottom: adv.notes ? '14px' : '0'
             }}>
               {new Date(adv.date + 'T12:00:00').toLocaleDateString('en-US', {
@@ -92,7 +92,7 @@ function AdventureCard({ adv, index, onDelete }) {
         {adv.notes && (
           <p style={{
             fontFamily: 'Playfair Display, serif', fontStyle: 'italic',
-            fontSize: '14px', color: 'rgba(255,255,255,0.5)',
+            fontSize: '16px', color: 'rgba(255,255,255,0.5)',
             lineHeight: 1.7, borderTop: `1px solid rgba(255,255,255,0.06)`,
             paddingTop: '14px', marginTop: '4px'
           }}>
@@ -147,7 +147,7 @@ function AddAdventureModal({ onClose, onSave }) {
         <form onSubmit={handleSubmit}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div>
-              <label style={{ fontFamily: 'Space Mono, monospace', fontSize: '9px', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
+              <label style={{ fontFamily: 'Space Mono, monospace', fontSize: '11px', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
                 Adventure Title *
               </label>
               <input
@@ -162,7 +162,7 @@ function AddAdventureModal({ onClose, onSave }) {
             </div>
 
             <div>
-              <label style={{ fontFamily: 'Space Mono, monospace', fontSize: '9px', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
+              <label style={{ fontFamily: 'Space Mono, monospace', fontSize: '11px', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
                 Date *
               </label>
               <input
@@ -177,7 +177,7 @@ function AddAdventureModal({ onClose, onSave }) {
             </div>
 
             <div>
-              <label style={{ fontFamily: 'Space Mono, monospace', fontSize: '9px', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
+              <label style={{ fontFamily: 'Space Mono, monospace', fontSize: '11px', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
                 Destination (optional)
               </label>
               <input
@@ -190,7 +190,7 @@ function AddAdventureModal({ onClose, onSave }) {
             </div>
 
             <div>
-              <label style={{ fontFamily: 'Space Mono, monospace', fontSize: '9px', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
+              <label style={{ fontFamily: 'Space Mono, monospace', fontSize: '11px', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
                 Notes / Dreams (optional)
               </label>
               <textarea
@@ -311,7 +311,7 @@ export default function AdventuresTab() {
           >
             <p style={{
               fontFamily: 'Playfair Display, serif', fontStyle: 'italic',
-              fontSize: '1.2rem', color: 'rgba(255,255,255,0.25)',
+              fontSize: '1.35rem', color: 'rgba(255,255,255,0.25)',
               lineHeight: 1.7, marginBottom: '32px'
             }}>
               The map is blank. That means everything<br />is still possible.

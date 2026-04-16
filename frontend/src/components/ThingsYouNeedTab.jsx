@@ -18,15 +18,15 @@ function PackItem({ item, onDelete, index }) {
       <div style={{ flex: 1 }}>
         <p style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '15px', color: '#fff',
+          fontSize: '17px', color: '#fff',
           fontWeight: 500, marginBottom: '5px'
         }}>
           {item.name}
         </p>
         <p style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '12px', color: 'rgba(0,229,255,0.75)',
-          lineHeight: 1.5, fontStyle: 'italic'
+          fontSize: '14px', color: 'rgba(0,229,255,0.75)',
+          lineHeight: 1.6, fontStyle: 'italic'
         }}>
           {item.response}
         </p>
@@ -118,7 +118,7 @@ export default function ThingsYouNeedTab() {
         </h1>
         <p style={{
           fontFamily: 'Playfair Display, serif', fontStyle: 'italic',
-          fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
+          fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
           color: 'rgba(255,255,255,0.35)', textAlign: 'center',
           marginBottom: '56px'
         }}>
@@ -203,7 +203,7 @@ export default function ThingsYouNeedTab() {
         style={{ maxWidth: '600px', margin: '0 auto 52px', padding: '0 24px' }}
       >
         <p style={{
-          fontFamily: 'Space Mono, monospace', fontSize: '9px',
+          fontFamily: 'Space Mono, monospace', fontSize: '11px',
           letterSpacing: '0.22em', color: 'rgba(255,255,255,0.25)',
           marginBottom: '14px', textAlign: 'center', textTransform: 'uppercase'
         }}>
@@ -233,7 +233,7 @@ export default function ThingsYouNeedTab() {
             alignItems: 'center', marginBottom: '20px'
           }}>
             <p style={{
-              fontFamily: 'Space Mono, monospace', fontSize: '10px',
+              fontFamily: 'Space Mono, monospace', fontSize: '12px',
               letterSpacing: '0.15em', color: 'rgba(255,255,255,0.35)',
               textTransform: 'uppercase'
             }}>
@@ -273,7 +273,7 @@ export default function ThingsYouNeedTab() {
           >
             <p style={{
               fontFamily: 'Playfair Display, serif', fontStyle: 'italic',
-              fontSize: '1.1rem', color: 'rgba(255,255,255,0.2)'
+              fontSize: '1.3rem', color: 'rgba(255,255,255,0.2)'
             }}>
               Your adventure kit is empty.<br />Start packing.
             </p>
