@@ -96,7 +96,13 @@ src/
 
 ---
 
-## Boarding Pass (Tab 2 — YOUR GIFT)
+## Landing Page (PasswordGate)
+- **Video background**: `/landing.mp4` — neon cyberpunk airplane flying over glowing world map
+- **Gradient overlay**: progressive dark-at-bottom to ensure text readability
+- **Copy**: "A PRIVATE GIFT" → "For Sonja" (large Playfair) → "16 years. Seven cities. One story."
+- **Form**: Password input + Enter button, centered at bottom
+- **Password**: `Snusen123`
+- **Transition**: Fade + subtle scale-up on correct entry → app slides in
 - **Airline:** ZELIKMAN AIRLINES
 - **Passenger:** SONJA
 - **Route:** CHILDHOOD → EVERYTHING
