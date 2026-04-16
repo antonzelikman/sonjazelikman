@@ -101,20 +101,144 @@ export const QUOTES = [
 // ──────────────────────────────────────────────
 // ORIGIN STORY — panels before the city cards
 // ──────────────────────────────────────────────
-export const ORIGIN_STORY = [
+export const ORIGIN_STORY = [];
+
+// ──────────────────────────────────────────────
+// BIRTHDAY LETTER
+// ──────────────────────────────────────────────
+export const BIRTHDAY_LETTER = [
   {
-    id: 'begin',
-    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/41ntxmqo_IMG_4246.jpeg',
-    year: 'Age 4 · The Beginning',
-    caption: 'Before the passport stamps.\nBefore the cities.\nThere was just this.',
-    align: 'left'
+    id: 'opening',
+    lines: [
+      { text: 'Sonja,', type: 'name' },
+    ]
   },
   {
-    id: 'roots',
-    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/6jkqwh3f_e90f9b08-0156-4386-a443-a6d1903e05bd.jpeg',
-    year: 'Age 14 · Always Together',
-    caption: 'The table was always set.\nThe sea was always close.\nThe people were always yours.',
-    align: 'right'
+    id: 'sixteen',
+    lines: [
+      { text: 'Sixteen.', type: 'neon' },
+    ]
+  },
+  {
+    id: 'moment',
+    lines: [
+      { text: 'There\'s something about this moment…', type: 'normal' },
+      { text: 'not loud, not dramatic —', type: 'dim' },
+      { text: 'but real.', type: 'normal' },
+    ]
+  },
+  {
+    id: 'standing',
+    lines: [
+      { text: 'You\'re standing in a place where things begin to open.', type: 'normal' },
+      { text: 'Where the world feels bigger…', type: 'normal' },
+      { text: 'and sometimes you might feel smaller in it.', type: 'dim' },
+    ]
+  },
+  {
+    id: 'truth',
+    lines: [
+      { text: 'But here\'s the truth I want you to carry,', type: 'dim' },
+      { text: 'quietly, in your own way:', type: 'dim' },
+    ]
+  },
+  {
+    id: 'affirmation',
+    lines: [
+      { text: 'You are not behind.', type: 'neon' },
+      { text: 'You are not missing anything.', type: 'neon' },
+      { text: 'You don\'t need to become someone else to belong in this world.', type: 'normal' },
+    ]
+  },
+  {
+    id: 'already',
+    lines: [
+      { text: 'You already are.', type: 'hero' },
+    ]
+  },
+  {
+    id: 'everything',
+    lines: [
+      { text: 'Everything you need…', type: 'normal' },
+      { text: 'your strength, your sensitivity, your way of seeing things,', type: 'dim' },
+      { text: 'even the parts you question sometimes —', type: 'dim' },
+      { text: 'they are not mistakes.', type: 'normal' },
+    ]
+  },
+  {
+    id: 'compass',
+    lines: [
+      { text: 'They are your compass.', type: 'neon-cyan' },
+    ]
+  },
+  {
+    id: 'days',
+    lines: [
+      { text: 'There will be days when things feel confusing, heavy, or uncertain.', type: 'normal' },
+      { text: 'That\'s not a sign that something is wrong with you.', type: 'dim' },
+      { text: 'It\'s a sign that you\'re growing.', type: 'normal' },
+    ]
+  },
+  {
+    id: 'notnow',
+    lines: [
+      { text: 'And you don\'t have to figure it all out now.', type: 'normal' },
+      { text: 'You don\'t have to be perfect.', type: 'normal' },
+      { text: 'You don\'t even have to be sure.', type: 'dim' },
+    ]
+  },
+  {
+    id: 'stay',
+    lines: [
+      { text: 'Just stay close to yourself.', type: 'neon' },
+      { text: 'Stay honest in the quiet moments.', type: 'normal' },
+      { text: 'That\'s where your direction lives.', type: 'dim' },
+    ]
+  },
+  {
+    id: 'world',
+    lines: [
+      { text: 'The world isn\'t something you have to live up to.', type: 'normal' },
+      { text: 'It\'s something you will step into —', type: 'normal' },
+      { text: 'in your own way, in your own time.', type: 'dim' },
+    ]
+  },
+  {
+    id: 'neveralone',
+    lines: [
+      { text: 'And no matter where you go, or who you become…', type: 'dim' },
+      { text: 'You are never alone in it.', type: 'neon' },
+    ]
+  },
+  {
+    id: 'loved',
+    lines: [
+      { text: 'You are deeply loved.', type: 'hero' },
+      { text: 'Exactly as you are.', type: 'normal' },
+      { text: 'Right here. Right now.', type: 'dim' },
+    ]
+  },
+  {
+    id: 'enough',
+    lines: [
+      { text: 'And that…', type: 'dim' },
+      { text: 'is more than enough.', type: 'neon' },
+    ]
+  },
+  {
+    id: 'hbd',
+    lines: [
+      { text: 'Happy 16th, Sonja.', type: 'hero-pink' },
+      { text: '❤️', type: 'heart' },
+    ]
+  },
+  {
+    id: 'family',
+    lines: [
+      { text: 'Alla som hejjar på dig!', type: 'family-title' },
+      { text: 'Pappa & Mamma, Farmor & Farfar, Baba, Mormor & Morfar,', type: 'family' },
+      { text: 'Sophie, Lina & Mikael, Lemmy & Elliot, Jimmy & Maja…och Belle', type: 'family' },
+    ]
   }
 ];
 

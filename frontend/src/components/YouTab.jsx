@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import NeonAirplane from './NeonAirplane';
-import { CITY_CARDS, QUOTES, HERO, ORIGIN_STORY } from '../lib/content';
+import { CITY_CARDS, QUOTES, HERO, BIRTHDAY_LETTER } from '../lib/content';
 
 const CITY_NODES = [
   { name: 'NYC', x: 12, y: 58, color: '#2D9CFF' },
@@ -131,57 +131,224 @@ function QuoteMoment({ quote }) {
   );
 }
 
-function OriginPanel({ panel, index }) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const y = useTransform(scrollYProgress, [0, 1], ['5%', '-5%']);
-  const isRight = panel.align === 'right';
+const LINE_STYLES = {
+  name: {
+    fontFamily: 'Playfair Display, serif',
+    fontSize: 'clamp(1.8rem, 5vw, 2.8rem)',
+    fontWeight: 700,
+    color: '#fff',
+    letterSpacing: '0.04em',
+    marginBottom: '0.2em',
+  },
+  sixteen: {
+    fontFamily: 'Playfair Display, serif',
+    fontSize: 'clamp(3rem, 10vw, 6rem)',
+    fontWeight: 700,
+    color: '#FF2D95',
+    textShadow: '0 0 40px rgba(255,45,149,0.7), 0 0 80px rgba(255,45,149,0.3)',
+    letterSpacing: '-0.01em',
+    lineHeight: 1,
+    display: 'block',
+    marginBottom: '0.15em',
+  },
+  neon: {
+    color: '#FF2D95',
+    textShadow: '0 0 20px rgba(255,45,149,0.6)',
+    fontStyle: 'normal',
+  },
+  'neon-cyan': {
+    color: '#00E5FF',
+    textShadow: '0 0 20px rgba(0,229,255,0.6)',
+    fontStyle: 'normal',
+  },
+  hero: {
+    fontFamily: 'Playfair Display, serif',
+    fontSize: 'clamp(1.6rem, 5vw, 2.6rem)',
+    fontWeight: 700,
+    color: '#fff',
+    textShadow: '0 0 40px rgba(255,255,255,0.2)',
+    lineHeight: 1.2,
+    fontStyle: 'normal',
+  },
+  'hero-pink': {
+    fontFamily: 'Playfair Display, serif',
+    fontSize: 'clamp(1.8rem, 5.5vw, 3rem)',
+    fontWeight: 700,
+    color: '#FF2D95',
+    textShadow: '0 0 50px rgba(255,45,149,0.8), 0 0 100px rgba(255,45,149,0.3)',
+    lineHeight: 1.1,
+    fontStyle: 'normal',
+    letterSpacing: '-0.01em',
+  },
+  heart: {
+    fontSize: 'clamp(1.4rem, 4vw, 2rem)',
+    display: 'block',
+    marginTop: '0.3em',
+  },
+  normal: {
+    color: 'rgba(255,255,255,0.75)',
+    fontStyle: 'normal',
+  },
+  dim: {
+    color: 'rgba(255,255,255,0.35)',
+  },
+  'family-title': {
+    fontFamily: 'Space Mono, monospace',
+    fontSize: '0.7rem',
+    letterSpacing: '0.18em',
+    color: 'rgba(255,45,149,0.6)',
+    textTransform: 'uppercase',
+    marginBottom: '0.6em',
+    fontStyle: 'normal',
+  },
+  family: {
+    color: 'rgba(255,255,255,0.4)',
+    fontSize: 'clamp(0.78rem, 2vw, 0.9rem)',
+    lineHeight: 1.8,
+  },
+};
 
+function LetterStanza({ stanza, index }) {
   return (
     <motion.div
-      ref={ref}
-      className={`origin-panel ${isRight ? 'origin-panel-right' : 'origin-panel-left'}`}
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 1.1, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-      data-testid={`origin-panel-${panel.id}`}
+      viewport={{ once: true, margin: '-30px' }}
+      transition={{ duration: 1.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+      style={{ marginBottom: stanza.id === 'sixteen' ? '4rem' : '2.4rem' }}
     >
-      {/* Photo */}
-      <div className="origin-photo-wrap">
-        <motion.img
-          src={panel.image}
-          alt=""
-          loading="lazy"
-          className="origin-photo"
-          style={{ y }}
-        />
-        <div className="origin-photo-overlay" />
-        <div className="origin-photo-glow" />
+      {stanza.lines.map((line, i) => {
+        const isSpecialDisplay = ['sixteen'].includes(line.type);
+        const baseStyle = {
+          display: 'block',
+          fontFamily: 'Playfair Display, serif',
+          fontStyle: 'italic',
+          fontSize: 'clamp(1rem, 3vw, 1.35rem)',
+          lineHeight: 1.85,
+          ...(LINE_STYLES[line.type] || LINE_STYLES.normal),
+        };
+
+        if (isSpecialDisplay) {
+          return (
+            <motion.span
+              key={i}
+              style={baseStyle}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.12 }}
+            >
+              {line.text}
+            </motion.span>
+          );
+        }
+
+        return (
+          <motion.span
+            key={i}
+            style={baseStyle}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, delay: 0.1 + i * 0.1 }}
+          >
+            {line.text}
+          </motion.span>
+        );
+      })}
+    </motion.div>
+  );
+}
+
+function BirthdayLetter() {
+  return (
+    <section
+      data-testid="birthday-letter"
+      style={{
+        position: 'relative',
+        padding: 'clamp(80px, 12vw, 140px) 24px',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Ambient neon glow blobs */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', top: '10%', left: '50%',
+        transform: 'translateX(-50%)',
+        width: 'min(700px, 120vw)', height: '500px',
+        background: 'radial-gradient(ellipse at center, rgba(255,45,149,0.07) 0%, transparent 70%)',
+        pointerEvents: 'none',
+      }} />
+      <div aria-hidden="true" style={{
+        position: 'absolute', bottom: '15%', left: '30%',
+        width: '400px', height: '400px',
+        background: 'radial-gradient(ellipse at center, rgba(0,229,255,0.05) 0%, transparent 70%)',
+        pointerEvents: 'none',
+      }} />
+
+      {/* Ghost "16" watermark */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', top: '50%', left: '50%',
+        transform: 'translate(-50%, -50%)',
+        fontFamily: 'Playfair Display, serif',
+        fontSize: 'clamp(260px, 40vw, 480px)',
+        fontWeight: 900,
+        color: 'transparent',
+        WebkitTextStroke: '1px rgba(255,45,149,0.04)',
+        lineHeight: 1,
+        pointerEvents: 'none',
+        userSelect: 'none',
+        whiteSpace: 'nowrap',
+      }}>16</div>
+
+      {/* Top overline */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        style={{ textAlign: 'center', marginBottom: 'clamp(48px, 8vw, 80px)' }}
+      >
+        <span style={{
+          fontFamily: 'Space Mono, monospace',
+          fontSize: '0.65rem',
+          letterSpacing: '0.25em',
+          color: 'rgba(255,45,149,0.7)',
+          textTransform: 'uppercase',
+          display: 'block',
+          marginBottom: '20px',
+        }}>A Letter For You</span>
+        <div style={{
+          width: '60px', height: '1px',
+          background: 'linear-gradient(to right, transparent, #FF2D95, transparent)',
+          margin: '0 auto',
+        }} />
+      </motion.div>
+
+      {/* Letter content */}
+      <div style={{
+        maxWidth: '640px',
+        margin: '0 auto',
+        position: 'relative',
+        zIndex: 2,
+      }}>
+        {BIRTHDAY_LETTER.map((stanza, i) => (
+          <LetterStanza key={stanza.id} stanza={stanza} index={i} />
+        ))}
       </div>
 
-      {/* Text */}
-      <div className="origin-text">
-        <motion.span
-          className="origin-year"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-        >
-          {panel.year}
-        </motion.span>
-        <motion.p
-          className="origin-caption"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, delay: 0.45 }}
-        >
-          {panel.caption.split('\n').map((l, i) => <span key={i}>{l}<br /></span>)}
-        </motion.p>
-      </div>
-    </motion.div>
+      {/* Bottom divider */}
+      <motion.div
+        initial={{ opacity: 0, scaleX: 0 }}
+        whileInView={{ opacity: 1, scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, delay: 0.3 }}
+        style={{
+          width: '120px', height: '1px',
+          background: 'linear-gradient(to right, transparent, rgba(255,45,149,0.5), transparent)',
+          margin: 'clamp(48px, 8vw, 80px) auto 0',
+        }}
+      />
+    </section>
   );
 }
 
@@ -315,49 +482,28 @@ export default function YouTab({ onTabChange }) {
         </motion.div>
       </section>
 
-      {/* ══════════════ ORIGIN STORY ══════════════ */}
-      <section className="origin-section" data-testid="origin-story">
-        <motion.div
-          className="origin-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9 }}
-        >
-          <p className="overline neon-pink" style={{ display: 'block', textAlign: 'center', marginBottom: '12px' }}>
-            Origin
-          </p>
-          <h2 className="origin-title">
-            Where it<br /><em>all began.</em>
-          </h2>
-        </motion.div>
+      {/* ══════════════ BIRTHDAY LETTER ══════════════ */}
+      <BirthdayLetter />
 
-        <div className="origin-panels">
-          {ORIGIN_STORY.map((panel, i) => (
-            <OriginPanel key={panel.id} panel={panel} index={i} />
-          ))}
-        </div>
-
-        {/* Bridge to cities */}
-        <motion.div
-          className="origin-bridge"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
-        >
-          <div className="divider-h" style={{ maxWidth: '120px', margin: '0 auto 32px' }} />
-          <p style={{
-            fontFamily: 'Playfair Display, serif', fontStyle: 'italic',
-            fontSize: 'clamp(1rem, 3vw, 1.4rem)',
-            color: 'rgba(255,255,255,0.3)', textAlign: 'center',
-            lineHeight: 1.8
-          }}>
-            And then — you started going places.
-          </p>
-          <div className="divider-h" style={{ maxWidth: '120px', margin: '32px auto 0' }} />
-        </motion.div>
-      </section>
+      {/* Bridge to cities */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2 }}
+        style={{ textAlign: 'center', padding: '0 24px 60px' }}
+      >
+        <div className="divider-h" style={{ maxWidth: '120px', margin: '0 auto 32px' }} />
+        <p style={{
+          fontFamily: 'Playfair Display, serif', fontStyle: 'italic',
+          fontSize: 'clamp(1rem, 3vw, 1.4rem)',
+          color: 'rgba(255,255,255,0.3)', textAlign: 'center',
+          lineHeight: 1.8
+        }}>
+          And then — you started going places.
+        </p>
+        <div className="divider-h" style={{ maxWidth: '120px', margin: '32px auto 0' }} />
+      </motion.div>
 
       {/* ══════════════ SECTION INTRO ══════════════ */}
       <motion.div
