@@ -223,8 +223,8 @@ function LetterStanza({ stanza, index }) {
           display: 'block',
           fontFamily: 'Playfair Display, serif',
           fontStyle: 'italic',
-          fontSize: 'clamp(1rem, 3vw, 1.35rem)',
-          lineHeight: 1.85,
+          fontSize: 'clamp(1.2rem, 3.5vw, 1.65rem)',
+          lineHeight: 1.95,
           ...(LINE_STYLES[line.type] || LINE_STYLES.normal),
         };
 
@@ -503,30 +503,6 @@ export default function YouTab({ onTabChange }) {
           And then — you started going places.
         </p>
         <div className="divider-h" style={{ maxWidth: '120px', margin: '32px auto 0' }} />
-      </motion.div>
-
-      {/* ══════════════ SECTION INTRO ══════════════ */}
-      <motion.div
-        className="section-intro"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      >
-        <div className="divider-h" style={{ maxWidth: '180px', margin: '0 auto 36px' }} />
-        <p className="overline neon-cyan" style={{ textAlign: 'center', marginBottom: '20px', display: 'block' }}>
-          WHO YOU ARE
-        </p>
-        <p style={{
-          fontFamily: 'Playfair Display, serif', fontStyle: 'italic',
-          fontSize: 'clamp(1rem, 3.2vw, 1.5rem)',
-          color: 'rgba(255,255,255,0.4)', textAlign: 'center',
-          maxWidth: '520px', margin: '0 auto',
-          lineHeight: 1.7
-        }}>
-          Six cities. Six versions of you.<br />All of them real.
-        </p>
-        <div className="divider-h" style={{ maxWidth: '180px', margin: '36px auto 0' }} />
       </motion.div>
 
       {/* ══════════════ CITY CARDS ══════════════ */}
