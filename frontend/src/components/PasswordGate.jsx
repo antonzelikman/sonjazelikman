@@ -87,7 +87,7 @@ export default function PasswordGate({ onUnlock }) {
             position: 'absolute', inset: 0, zIndex: 3,
             display: 'flex', flexDirection: 'column',
             alignItems: 'center', justifyContent: 'flex-end',
-            padding: '0 24px 60px',
+            padding: '0 clamp(16px, 6vw, 24px) clamp(40px, 10vh, 70px)',
             pointerEvents: 'none'
           }}>
             <motion.div
@@ -140,7 +140,7 @@ export default function PasswordGate({ onUnlock }) {
                 transition={{ delay: 1.8 }}
                 style={{
                   fontFamily: 'Playfair Display, serif', fontStyle: 'italic',
-                  fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
+                  fontSize: 'clamp(1rem, 4vw, 1.15rem)',
                   color: 'rgba(255,255,255,0.35)',
                   marginBottom: '44px', lineHeight: 1.7
                 }}
@@ -171,7 +171,7 @@ export default function PasswordGate({ onUnlock }) {
                       width: '100%', background: 'rgba(255,255,255,0.04)',
                       border: `1px solid ${error ? 'rgba(255,68,68,0.7)' : 'rgba(255,45,149,0.3)'}`,
                       borderRadius: '4px',
-                      color: '#FFFFFF', fontSize: '14px',
+                      color: '#FFFFFF', fontSize: '16px',
                       padding: '16px 20px', textAlign: 'center',
                       fontFamily: 'Inter, sans-serif', letterSpacing: '0.2em',
                       outline: 'none', transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
