@@ -84,7 +84,7 @@ export const CITY_CARDS = [
     id: 'budapest',
     city: 'Budapest',
     year: '2025 · Age 15',
-    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/29jb2apj_IMG_9626.jpg',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/cd4a7obv_TELAVIV.png',
     caption: 'Synagogues, river views, late nights.\nA place that knows something you\'re still learning.',
     quote: 'Some places call to you before you know why.',
     accent: '#E8A838'
