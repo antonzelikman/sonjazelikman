@@ -114,20 +114,60 @@ function BoardingPassCard({ visible }) {
                 <span className="bp-amount-sub">Yours to use. No rules.</span>
               </div>
 
-              {/* Animated neon barcode */}
-              <div className="bp-barcode" aria-hidden="true">
-                {Array.from({ length: 28 }, (_, i) => (
-                  <motion.div
-                    key={i}
-                    className="bp-bar"
-                    style={{
-                      width: `${[2, 4, 2, 6, 2, 4, 2, 2, 6, 2, 4, 2, 6, 2, 2, 4, 2, 6, 2, 4, 2, 2, 6, 4, 2, 2, 4, 6][i] || 3}px`,
-                      background: i % 5 === 0 ? 'var(--pink)' : i % 3 === 0 ? 'var(--cyan)' : '#fff'
-                    }}
-                    animate={{ opacity: [0.6, 1, 0.6] }}
-                    transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.04 }}
-                  />
-                ))}
+              {/* Animated neon barcode + Bank Account link */}
+              <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '16px' }}>
+                <div className="bp-barcode" aria-hidden="true">
+                  {Array.from({ length: 28 }, (_, i) => (
+                    <motion.div
+                      key={i}
+                      className="bp-bar"
+                      style={{
+                        width: `${[2, 4, 2, 6, 2, 4, 2, 2, 6, 2, 4, 2, 6, 2, 2, 4, 2, 6, 2, 4, 2, 2, 6, 4, 2, 2, 4, 6][i] || 3}px`,
+                        background: i % 5 === 0 ? 'var(--pink)' : i % 3 === 0 ? 'var(--cyan)' : '#fff'
+                      }}
+                      animate={{ opacity: [0.6, 1, 0.6] }}
+                      transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.04 }}
+                    />
+                  ))}
+                </div>
+
+                <motion.a
+                  data-testid="bank-account-link"
+                  href="https://www.handelsbanken.se/sv/privat/vardagstjanster/digitala-tjanster/inloggningssatt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.8, duration: 0.6 }}
+                  style={{
+                    fontFamily: 'Space Mono, monospace',
+                    fontSize: '10px',
+                    letterSpacing: '0.18em',
+                    color: 'var(--cyan)',
+                    border: '1px solid rgba(0,229,255,0.45)',
+                    borderRadius: '4px',
+                    padding: '8px 14px',
+                    textDecoration: 'none',
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
+                    textShadow: '0 0 12px rgba(0,229,255,0.6)',
+                    boxShadow: '0 0 14px rgba(0,229,255,0.15)',
+                    transition: 'all 0.3s ease',
+                    display: 'inline-block',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = 'var(--cyan)';
+                    e.currentTarget.style.boxShadow = '0 0 24px rgba(0,229,255,0.4)';
+                    e.currentTarget.style.background = 'rgba(0,229,255,0.08)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = 'rgba(0,229,255,0.45)';
+                    e.currentTarget.style.boxShadow = '0 0 14px rgba(0,229,255,0.15)';
+                    e.currentTarget.style.background = 'transparent';
+                  }}
+                >
+                  BANK ACCOUNT
+                </motion.a>
               </div>
             </motion.div>
           </div>
