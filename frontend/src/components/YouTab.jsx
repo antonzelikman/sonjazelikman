@@ -33,7 +33,8 @@ const item = {
 function CityCard({ card, index }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const y = useTransform(scrollYProgress, [0, 1], ['6%', '-6%']);
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const y = useTransform(scrollYProgress, [0, 1], isMobile ? ['0%', '0%'] : ['6%', '-6%']);
   const isReversed = index % 2 !== 0;
 
   return (
