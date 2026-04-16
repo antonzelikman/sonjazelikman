@@ -55,8 +55,8 @@ src/
 |------|------|-------------|
 | Paris | 2023 · Age 13 | /avatars/paris_v2.png (AI neon portrait) |
 | Barcelona | 2022 · Age 12 | Real Sonja photo — Spanish coast with dad |
-| London | 2023 · Age 13 | Real Sonja photo — London Eye + Big Ben |
-| Istanbul | 2024 · Age 14 | /avatars/istanbul_v2.png (AI neon portrait) |
+| London | 2023 · Age 13 | LONDON.png — Neon rain portrait ✅ |
+|| Istanbul | 2024 · Age 14 | ISTANBUL.png — Hagia Sophia neon portrait ✅ |
 | New York | 2025 · Age 15 | /avatars/newyork.png (AI neon portrait) |
 | Tel Aviv | 2019–2025 | Real Sonja photo — beach sand |
 | **Budapest** | **2025 · Age 15** | **Real photo — Mazel Tov restaurant** |
@@ -128,7 +128,10 @@ Crossfade duration: 1.5s. Audio requires user click to start.
 - ✅ 4-tab pill nav with AnimatePresence transitions
 - ✅ Crossfading audio manager per tab (HTML5 API)
 - ✅ YOU tab: Neon airplane hero + city constellation + 6 portrait cards + quotes
-- ✅ YOUR GIFT tab: 5,000 SEK hero + animated boarding pass + gift letter reveal
+- ✅ London dreamy neon image (LONDON.png) — rain/neon street portrait
+- ✅ Istanbul dreamy neon image (ISTANBUL.png) — Hagia Sophia neon portrait  
+- ✅ "YOUR GIFT" CTA button at bottom of YOU tab (navigates to gift tab)
+- ✅ 5,000 SEK reveal + animated boarding pass + gift letter reveal
 - ✅ THINGS YOU NEED tab: Packing list with AI responses + suggestion chips (localStorage)
 - ✅ ADVENTURES tab: Adventure planner with modal form + chronological cards (localStorage)
 - ✅ 3 AI-generated neon city avatars (Paris, Barcelona, New York)

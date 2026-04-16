@@ -185,7 +185,7 @@ function OriginPanel({ panel, index }) {
   );
 }
 
-export default function YouTab() {
+export default function YouTab({ onTabChange }) {
   const scrollToCards = () => {
     document.getElementById('you-city-cards')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -419,10 +419,58 @@ export default function YouTab() {
           fontFamily: 'Playfair Display, serif', fontStyle: 'italic',
           fontSize: 'clamp(0.9rem, 2.5vw, 1.15rem)',
           color: 'rgba(255,255,255,0.35)', textAlign: 'center',
-          maxWidth: '400px', margin: '0 auto 72px'
+          maxWidth: '400px', margin: '0 auto 56px'
         }}>
           Pappa &amp; Mamma
         </p>
+
+        {/* YOUR GIFT CTA */}
+        <motion.div
+          style={{ display: 'flex', justifyContent: 'center', marginBottom: '72px' }}
+          initial={{ opacity: 0, scale: 0.88, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <button
+            data-testid="your-gift-cta-btn"
+            onClick={() => onTabChange?.('gift')}
+            style={{
+              fontFamily: 'Playfair Display, serif',
+              fontWeight: 700,
+              fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
+              letterSpacing: '0.04em',
+              color: '#fff',
+              background: 'linear-gradient(135deg, #FF2D9520 0%, #7B61FF20 100%)',
+              border: '2px solid #FF2D95',
+              borderRadius: '4px',
+              padding: 'clamp(18px, 3vw, 28px) clamp(40px, 8vw, 90px)',
+              cursor: 'pointer',
+              position: 'relative',
+              overflow: 'hidden',
+              textShadow: '0 0 30px #FF2D95, 0 0 60px #FF2D9555',
+              boxShadow: '0 0 40px #FF2D9540, 0 0 80px #FF2D9520, inset 0 0 40px #FF2D9510',
+              transition: 'box-shadow 0.3s ease, transform 0.3s ease',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.boxShadow = '0 0 70px #FF2D9570, 0 0 120px #FF2D9540, inset 0 0 60px #FF2D9520';
+              e.currentTarget.style.transform = 'scale(1.04)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.boxShadow = '0 0 40px #FF2D9540, 0 0 80px #FF2D9520, inset 0 0 40px #FF2D9510';
+              e.currentTarget.style.transform = 'scale(1)';
+            }}
+          >
+            YOUR GIFT
+            <span style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(90deg, transparent 0%, rgba(255,45,149,0.08) 50%, transparent 100%)',
+              transform: 'skewX(-20deg)',
+              pointerEvents: 'none'
+            }} />
+          </button>
+        </motion.div>
+
         <div className="divider-h" style={{ maxWidth: '140px', margin: '0 auto' }} />
         <div style={{ height: '80px' }} />
       </motion.section>

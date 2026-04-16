@@ -69,7 +69,7 @@ export default function App() {
             exit={{ opacity: 0, y: -24 }}
             transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <ActivePage />
+            <ActivePage onTabChange={handleTabChange} />
           </motion.div>
         </AnimatePresence>
       </main>

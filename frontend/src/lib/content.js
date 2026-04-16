@@ -48,7 +48,7 @@ export const CITY_CARDS = [
     id: 'london',
     city: 'London',
     year: '2023 · Age 13',
-    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/bokwlwhn_IMG_2081.jpg',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/39oe01gw_LONDON.png',
     caption: 'Sharp, observant, composed.\nYou see more than you say.',
     quote: 'The sharpest minds move quietly.',
     accent: '#7B61FF'
@@ -57,7 +57,7 @@ export const CITY_CARDS = [
     id: 'istanbul',
     city: 'Istanbul',
     year: '2024 · Age 14',
-    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/u65lg03p_DREAM.png',
+    image: 'https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/lu4w03r5_ISTANBUL.png',
     caption: 'Depth, contrast, mystery.\nA place that mirrors your complexity.',
     quote: 'There are places that hold you before you even know their name.',
     accent: '#00E5FF'
