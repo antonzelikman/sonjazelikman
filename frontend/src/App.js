@@ -24,6 +24,13 @@ export default function App() {
     setUserInteracted(true);
   };
 
+  const handleGoToStart = () => {
+    setAuthenticated(false);
+    setActiveTab('you');
+    setAudioEnabled(false);
+    setUserInteracted(false);
+  };
+
   const handleTabChange = (tab) => {
     setActiveTab(tab);
     if (!userInteracted) setUserInteracted(true);
@@ -43,7 +50,7 @@ export default function App() {
   return (
     <div style={{ background: '#080810', minHeight: '100vh', overflowX: 'hidden' }}>
       <ParticleField />
-      <NavHeader activeTab={activeTab} onTabChange={handleTabChange} />
+      <NavHeader activeTab={activeTab} onTabChange={handleTabChange} onGoToStart={handleGoToStart} />
       <AudioManager activeTab={activeTab} userInteracted={userInteracted && audioEnabled} />
 
       <button
