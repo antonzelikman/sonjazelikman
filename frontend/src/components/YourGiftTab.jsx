@@ -262,23 +262,86 @@ export default function YourGiftTab() {
       {/* ── GIFT LETTER ── */}
       <AnimatePresence>
         {showLetter && (
-          <motion.section
-            className="gift-letter-section"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
-            data-testid="gift-letter"
-          >
-            <div className="gift-letter-card">
-              {/* Corner accents */}
-              <div className="corner-tl" />
-              <div className="corner-tr" />
-              <div className="corner-bl" />
-              <div className="corner-br" />
+          <>
+            <motion.section
+              className="gift-letter-section"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
+              data-testid="gift-letter"
+            >
+              <div className="gift-letter-card">
+                {/* Corner accents */}
+                <div className="corner-tl" />
+                <div className="corner-tr" />
+                <div className="corner-bl" />
+                <div className="corner-br" />
 
-              <pre className="gift-letter-text">{GIFT_LETTER}</pre>
-            </div>
-          </motion.section>
+                <pre className="gift-letter-text">{GIFT_LETTER}</pre>
+              </div>
+            </motion.section>
+
+            {/* ── CLOSING VIDEO ── */}
+            <motion.section
+              data-testid="cosmic-video-section"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              style={{
+                position: 'relative',
+                maxWidth: '900px',
+                margin: '0 auto 0',
+                padding: '0 24px',
+                textAlign: 'center'
+              }}
+            >
+              <motion.p
+                className="overline neon-pink"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.6 }}
+                style={{ display: 'block', marginBottom: '28px' }}
+              >
+                This is your moment
+              </motion.p>
+
+              <div style={{
+                position: 'relative',
+                borderRadius: '8px',
+                overflow: 'hidden',
+                boxShadow: '0 0 60px rgba(255,45,149,0.35), 0 0 120px rgba(123,97,255,0.2)',
+                border: '1px solid rgba(255,45,149,0.25)'
+              }}>
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ width: '100%', display: 'block' }}
+                  src="https://customer-assets.emergentagent.com/job_sixteen-world/artifacts/51gcjguf_Cosmic%20Poise%20%28AI%20Video%20Effect%29.mp4"
+                />
+                {/* Neon overlay tint */}
+                <div style={{
+                  position: 'absolute', inset: 0, pointerEvents: 'none',
+                  background: 'linear-gradient(to bottom, transparent 60%, rgba(8,8,16,0.7) 100%)'
+                }} />
+              </div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2.2, duration: 0.9 }}
+                style={{
+                  fontFamily: 'Playfair Display, serif', fontStyle: 'italic',
+                  fontSize: 'clamp(1rem, 3vw, 1.4rem)',
+                  color: 'rgba(255,255,255,0.35)',
+                  marginTop: '40px', lineHeight: 1.7
+                }}
+              >
+                The adventure starts now.
+              </motion.p>
+            </motion.section>
+          </>
         )}
       </AnimatePresence>
 

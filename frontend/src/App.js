@@ -18,6 +18,12 @@ export default function App() {
   const [audioEnabled, setAudioEnabled] = useState(false);
   const [userInteracted, setUserInteracted] = useState(false);
 
+  const handleUnlock = () => {
+    setAuthenticated(true);
+    setAudioEnabled(true);
+    setUserInteracted(true);
+  };
+
   const handleTabChange = (tab) => {
     setActiveTab(tab);
     if (!userInteracted) setUserInteracted(true);
@@ -29,7 +35,7 @@ export default function App() {
   };
 
   if (!authenticated) {
-    return <PasswordGate onUnlock={() => setAuthenticated(true)} />;
+    return <PasswordGate onUnlock={handleUnlock} />;
   }
 
   const ActivePage = TAB_PAGES[activeTab];
