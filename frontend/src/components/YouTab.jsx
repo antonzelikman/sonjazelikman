@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import NeonAirplane from './NeonAirplane';
+import WorldExplorerSection from './WorldExplorerSection';
 import { CITY_CARDS, QUOTES, HERO, BIRTHDAY_LETTER } from '../lib/content';
 
 const CITY_NODES = [
@@ -265,6 +266,7 @@ function BirthdayLetter() {
   return (
     <section
       data-testid="birthday-letter"
+      id="birthday-letter-section"
       style={{
         position: 'relative',
         padding: 'clamp(80px, 12vw, 140px) 24px',
@@ -354,6 +356,9 @@ function BirthdayLetter() {
 }
 
 export default function YouTab({ onTabChange }) {
+  const scrollToLetter = () => {
+    document.getElementById('birthday-letter-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
   const scrollToCards = () => {
     document.getElementById('you-city-cards')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -461,7 +466,7 @@ export default function YouTab({ onTabChange }) {
             <button
               data-testid="begin-journey-btn"
               className="btn-neon btn-pulse"
-              onClick={scrollToCards}
+              onClick={scrollToLetter}
             >
               Your Story Below
             </button>
@@ -515,6 +520,9 @@ export default function YouTab({ onTabChange }) {
           </div>
         ))}
       </div>
+
+      {/* ══════════════ WORLD EXPLORER MAP ══════════════ */}
+      <WorldExplorerSection />
 
       {/* ══════════════ CLOSING ══════════════ */}
       <motion.section

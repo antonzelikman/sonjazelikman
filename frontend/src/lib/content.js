@@ -237,7 +237,8 @@ export const BIRTHDAY_LETTER = [
     lines: [
       { text: 'Alla som hejjar på dig!', type: 'family-title' },
       { text: 'Pappa & Mamma, Farmor & Farfar, Baba, Mormor & Morfar,', type: 'family' },
-      { text: 'Sophie, Lina & Mikael, Lemmy & Elliot, Jimmy & Maja…och Belle', type: 'family' },
+      { text: 'Sophie, Lina & Mikael, Lemmy & Elliot, Jimmy & Maja…och Belle,', type: 'family' },
+      { text: 'Nee och Klöver', type: 'family' },
     ]
   }
 ];
