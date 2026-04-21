@@ -145,7 +145,7 @@ export default function PasswordGate({ onUnlock }) {
                   marginBottom: '44px', lineHeight: 1.7
                 }}
               >
-                16 years. Seven cities.<br />One story.
+                16 years.<br />One story.
               </motion.p>
 
               {/* Form */}

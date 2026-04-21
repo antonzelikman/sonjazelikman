@@ -247,7 +247,7 @@ export const BIRTHDAY_LETTER = [
 // GIFT
 // ──────────────────────────────────────────────
 export const GIFT = {
-  amount: '5,000 SEK',
+  amount: '3,000 SEK',
   description: 'A real, dedicated travel & experience account — loaded and ready.\nThis is yours to use.'
 };
 
@@ -260,7 +260,7 @@ export const BOARDING_PASS = {
   class: 'FIRST CLASS',
   gate: 'OPEN',
   seat: 'WINDOW',
-  amount: '5,000 SEK',
+  amount: '3,000 SEK',
   destination: 'Unknown — and that\'s the point.'
 };
 

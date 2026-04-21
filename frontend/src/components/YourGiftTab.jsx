@@ -216,8 +216,7 @@ export default function YourGiftTab() {
               marginBottom: '16px'
             }}
           >
-            5,000
-          </motion.h1>
+            3,000
 
           <motion.p
             className="neon-cyan"
