@@ -217,6 +217,7 @@ export default function YourGiftTab() {
             }}
           >
             3,000
+          </motion.h1>
 
           <motion.p
             className="neon-cyan"
